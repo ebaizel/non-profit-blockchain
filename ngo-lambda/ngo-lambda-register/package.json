@@ -1,0 +1,16 @@
+{
+  "name": "ngo-lambda-register",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Emile Baizel",
+  "license": "ISC",
+  "dependencies": {
+    "aws-param-store": "^3.0.0",
+    "aws-sdk": "^2.488.0",
+    "fabric-client": "^1.2.2"
+  }
+}

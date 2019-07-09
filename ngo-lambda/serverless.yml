@@ -1,0 +1,31 @@
+service: ngo-lambda-register
+
+provider:
+  name: aws
+  runtime: nodejs8.10
+
+  iamRoleStatements:
+    - Effect: "Allow"
+      Action:
+        - "ec2:CreateNetworkInterface"
+        - "ec2:DescribeNetworkInterfaces"
+        - "ec2:DeleteNetworkInterface"
+        - "ssm:PutParameter"
+        - "ssm:GetParameters"
+        - "ssm:GetParameter"
+      Resource:
+        - "*"
+
+  vpc:
+    securityGroupIds:
+      - sg-0ea7875705cf712ef
+    subnetIds:
+      - subnet-09f9a0387b919014b
+
+functions:
+  register:
+    handler: index.handler
+    events:
+      - http:
+          path: members
+          method: post
